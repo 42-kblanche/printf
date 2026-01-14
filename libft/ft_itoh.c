@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_assign.c                                 :+:      :+:    :+:   */
+/*   ft_itoh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 16:11:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/14 16:35:40 by kblanche         ###   ########.fr       */
+/*   Created: 2025/11/12 00:22:31 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/14 19:15:04 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
 #include "../libft.h"
+#include <malloc.h>
 
-t_string	*ft_string_assign(t_string *self, const char *str)
+char	*ft_itoh(int n)
 {
-	size_t	str_len;
+	char			*r;
+	unsigned long	un;
+	size_t			i;
+	const char		hex_arr[] = "0123456789abcdef";
 
-	str_len = ft_strlen(str);
-	while (self->max_size <= str_len)
-		ft_string_double_size(self);
-	ft_strlcpy(self->str, str, str_len + 1);
-	return (self);
+	un = (unsigned int)n;
+	r = ft_calloc(50, sizeof(char));
+	i = 0;
+	if (!r)
+		return (0);
+	while (un > 0)
+	{
+		r[i] = hex_arr[(un % 16)];
+		un /= 16;
+		++i;
+	}
+	return (r);
 }

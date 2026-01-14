@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_assign.c                                 :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 16:11:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/14 16:35:40 by kblanche         ###   ########.fr       */
+/*   Created: 2025/10/22 18:37:40 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/14 18:06:52 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
 #include "../libft.h"
 
-t_string	*ft_string_assign(t_string *self, const char *str)
+int	ft_tolower(int c)
 {
-	size_t	str_len;
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
+}
 
-	str_len = ft_strlen(str);
-	while (self->max_size <= str_len)
-		ft_string_double_size(self);
-	ft_strlcpy(self->str, str, str_len + 1);
-	return (self);
+void	ft_strtolower(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] = ft_tolower(str[i]);
+		++i;
+	}
 }

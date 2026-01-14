@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_assign.c                                 :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 16:11:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/14 16:35:40 by kblanche         ###   ########.fr       */
+/*   Created: 2025/10/22 17:59:38 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/14 18:19:57 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
 #include "../libft.h"
 
-t_string	*ft_string_assign(t_string *self, const char *str)
+char	*ft_strdup(const char *s)
 {
-	size_t	str_len;
+	char	*t;
+	size_t	i;
+	size_t	size;
 
-	str_len = ft_strlen(str);
-	while (self->max_size <= str_len)
-		ft_string_double_size(self);
-	ft_strlcpy(self->str, str, str_len + 1);
-	return (self);
+	i = 0;
+	size = ft_strlen(s) + 1;
+	t = (char *)ft_calloc(size, sizeof(char));
+	if (!t)
+		return (0);
+	while (i < size)
+	{
+		t[i] = s[i];
+		++i;
+	}
+	return (t);
 }

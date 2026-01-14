@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_assign.c                                 :+:      :+:    :+:   */
+/*   ft_string_append_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 16:11:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/14 16:35:40 by kblanche         ###   ########.fr       */
+/*   Created: 2026/01/14 19:16:25 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/14 19:42:02 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../stringft.h"
 #include "../libft.h"
 
-t_string	*ft_string_assign(t_string *self, const char *str)
+void		ft_string_append_int(t_string *self, const int n)
 {
-	size_t	str_len;
 
-	str_len = ft_strlen(str);
-	while (self->max_size <= str_len)
-		ft_string_double_size(self);
-	ft_strlcpy(self->str, str, str_len + 1);
-	return (self);
 }
+void		ft_string_append_percent(t_string *self);
+void		ft_string_append_pointer(t_string *self, const void *p);
+void		ft_string_append_size(t_string *self, const size_t s);
+void		ft_string_append_unsigned(t_string *self, const double n);

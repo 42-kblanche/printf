@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:57:13 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/08 17:23:29 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:20:15 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,18 @@ typedef enum e_print
 }	t_print;
 
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_itoa(int n);
+char	*ft_itoh(int n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 int		ft_printf(const char *str, ...);
 void	ft_putstr_fd(char *s, int fd);
+char	*ft_strdup(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_strtolower(char *str);
+void	ft_strtoupper(char *str);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
 
 #endif
