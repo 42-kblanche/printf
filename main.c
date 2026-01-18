@@ -6,24 +6,23 @@
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 17:29:48 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/14 16:56:19 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:57:55 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stringft.h"
-#include <stdio.h>
 
 int	main(void)
 {
 	t_string	test;
 
 	ft_string_init_str(&test, "test\n");
-	printf("%s\tsize: %lu\n", test.str, test.max_size);
-	ft_string_assign(&test, "assign ");
-	printf("%s\tsize: %lu\n", test.str, test.max_size);
-	ft_string_append(&test, "append\n");
-	printf("%s\tsize: %lu\n", test.str, test.max_size);
+	ft_string_print(&test, 1);
+	ft_string_assign(&test, NULL);
+	ft_string_print(&test, 1);
+	ft_string_append_int(&test, 42);
+	ft_string_print(&test, 1);
 	ft_string_destroy(&test);
-	printf("%s\tsize: %lu\n", test.str, test.max_size);
+	ft_string_print(&test, 1);
 	return (0);
 }

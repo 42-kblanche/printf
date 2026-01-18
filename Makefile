@@ -9,17 +9,25 @@ BLUE = \033[0;34m
 
 SRCS = libft/ft_printf.c \
 	   libft/ft_calloc.c \
+	   libft/ft_itoa.c \
+	   libft/ft_itoh.c \
 	   libft/ft_memcpy.c \
+	   libft/ft_ptoh.c \
 	   libft/ft_putstr_fd.c \
+	   libft/ft_strdup.c \
 	   libft/ft_strlcpy.c \
 	   libft/ft_strlen.c \
 	   libft/ft_strncmp.c \
+	   libft/ft_tolower.c \
+	   libft/ft_toupper.c \
 	   stringft/ft_string_append.c \
+	   stringft/ft_string_append_2.c \
        stringft/ft_string_assign.c \
        stringft/ft_string_destroy.c \
        stringft/ft_string_double_size.c \
        stringft/ft_string_find.c \
-       stringft/ft_string_init.c
+       stringft/ft_string_init.c \
+       stringft/ft_string_print.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

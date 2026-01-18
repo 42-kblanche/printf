@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:57:13 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/14 18:20:15 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:22:34 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*ft_itoa(int n);
 char	*ft_itoh(int n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 int		ft_printf(const char *str, ...);
+char	*ft_ptoh(const void *ptr);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);

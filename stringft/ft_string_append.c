@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:03:07 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/14 19:41:58 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/18 21:05:41 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	ft_string_append(t_string *self, const char *str)
 	size_t	self_len;
 	size_t	str_len;
 
+	if (!str)
+		return ;
+	if (!self->str)
+	{
+		ft_string_init_str(self, str);
+		return ;
+	}
 	self_len = ft_strlen(self->str);
 	str_len = ft_strlen(str);
 	while (self_len > self->max_size - str_len)
