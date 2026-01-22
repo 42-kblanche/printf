@@ -25,9 +25,12 @@ SRCS = libft/ft_printf.c \
        stringft/ft_string_assign.c \
        stringft/ft_string_destroy.c \
        stringft/ft_string_double_size.c \
+       stringft/ft_string_erase.c \
        stringft/ft_string_find.c \
        stringft/ft_string_init.c \
-       stringft/ft_string_print.c
+       stringft/ft_string_insert.c \
+       stringft/ft_string_print.c \
+       stringft/ft_string_substr.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_string_substr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 17:29:48 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 08:06:58 by kblanche         ###   ########.fr       */
+/*   Created: 2026/01/19 18:45:09 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/22 06:06:50 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stringft.h"
+#include "../stringft.h"
+#include "../libft.h"
+#include <stddef.h>
 
-int	main(void)
+t_string	ft_string_substr(t_string *self, size_t index, size_t len)
 {
-	t_string	test;
+	t_string	ret;
 
-	ft_string_init_str(&test, "testtest\n");
-	ft_string_insert(&test, 4, "insertme");
-	ft_string_print(&test, 1);
-	ft_string_destroy(&test);
-	return (0);
+	ret.str = ft_strdup(self->str + index);
+	ret.max_size = ft_strlen(ret.str);
+	if (len <= ret.max_size)
+		ret.str[len] = '\0';
+	return (ret);
 }

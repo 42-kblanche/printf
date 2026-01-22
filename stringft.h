@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stringft.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:37:03 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/18 21:08:15 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/22 07:34:48 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void		ft_string_erase(t_string *self, size_t index, size_t len);
 ssize_t		ft_string_find(const t_string *self, const char *needle);
 t_string	*ft_string_init(t_string *self);
 t_string	*ft_string_init_str(t_string *self, const char *str);
+void		ft_string_insert(t_string *self, size_t index, const char *str);
 void		ft_string_print(const t_string *self, int fd);
+t_string	ft_string_substr(t_string *self, size_t index, size_t len);
 
 #endif

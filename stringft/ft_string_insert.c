@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_find.c                                   :+:      :+:    :+:   */
+/*   ft_string_insert.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 17:08:49 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 05:01:54 by kblanche         ###   ########.fr       */
+/*   Created: 2026/01/22 07:12:56 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/22 08:05:42 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
 #include "../libft.h"
+#include "../stringft.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-ssize_t	ft_string_find(const t_string *self, const char *str)
+void	ft_string_insert(t_string *self, size_t index, const char *str)
 {
-	size_t	i;
-	size_t	self_len;
 	size_t	str_len;
-	int		r;
+	size_t	self_len;
+	char	*tmp;
 
-	i = 0;
 	self_len = ft_strlen(self->str);
+	if (self_len < index)
+		return ;
 	str_len = ft_strlen(str);
-	if (str_len > self_len)
-		return (-1);
-	while (i + str_len <= self_len)
-	{
-		if (self->str[i] == str[0])
-		{
-			r = ft_strncmp(self->str + i, str, str_len);
-			if (r == 0)
-				return (i);
-		}
-	}
-	return (-1);
+	while (str_len >= self->max_size - self_len)
+		ft_string_double_size(self);
+	tmp = ft_strdup(self->str);
+	self->str[index] = '\0';
+	ft_string_append(self, str);
+	ft_string_append(self, tmp + index);
+	free(tmp);
 }

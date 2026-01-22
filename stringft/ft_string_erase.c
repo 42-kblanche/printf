@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_string_erase.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 17:29:48 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 08:06:58 by kblanche         ###   ########.fr       */
+/*   Created: 2026/01/19 18:45:09 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/22 06:03:52 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stringft.h"
+#include "../stringft.h"
+#include "../libft.h"
+#include <stddef.h>
 
-int	main(void)
+void	ft_string_erase(t_string *self, size_t index, size_t len)
 {
-	t_string	test;
-
-	ft_string_init_str(&test, "testtest\n");
-	ft_string_insert(&test, 4, "insertme");
-	ft_string_print(&test, 1);
-	ft_string_destroy(&test);
-	return (0);
+	ft_strlcpy(self->str + index,
+		self->str + index + len,
+		ft_strlen(self->str + index + len)
+		);
 }
