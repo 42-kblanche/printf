@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_find.c                                   :+:      :+:    :+:   */
+/*   ft_strfind.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 17:08:49 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 05:01:54 by kblanche         ###   ########.fr       */
+/*   Created: 2026/01/22 08:26:19 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/22 08:31:49 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
 #include "../libft.h"
 
-ssize_t	ft_string_find(const t_string *self, const char *str)
+ssize_t	ft_strfind(const char *haystack, const char *needle)
 {
 	size_t	i;
-	size_t	self_len;
-	size_t	str_len;
+	size_t	haystack_len;
+	size_t	needle_len;
 	int		r;
 
 	i = 0;
-	self_len = ft_strlen(self->str);
-	str_len = ft_strlen(str);
-	if (str_len > self_len)
+	haystack_len = ft_strlen(haystack);
+	needle_len = ft_strlen(needle);
+	if (needle_len > haystack_len)
 		return (-1);
-	while (i + str_len <= self_len)
+	while (i + needle_len <= haystack_len)
 	{
-		if (self->str[i] == str[0])
+		if (haystack[i] == needle[0])
 		{
-			r = ft_strncmp(self->str + i, str, str_len);
+			r = ft_strncmp(haystack + i, needle, needle_len);
 			if (r == 0)
 				return (i);
 		}

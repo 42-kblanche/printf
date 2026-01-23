@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 07:12:56 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 08:05:42 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/24 00:12:48 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,31 @@ void	ft_string_insert(t_string *self, size_t index, const char *str)
 	ft_string_append(self, str);
 	ft_string_append(self, tmp + index);
 	free(tmp);
+}
+
+void	ft_string_insert_char(t_string *self, size_t index, const char c)
+{
+	char	str[2];
+
+	str[0] = c;
+	str[1] = '\0';
+	ft_string_insert(self, index, str);
+}
+
+void	ft_string_insert_hex_lo(t_string *self, size_t index, const int n)
+{
+	char	*str;
+
+	str = ft_itoh(n);
+	ft_strtolower(str);
+	ft_string_insert(self, index, str);
+}
+
+void	ft_string_insert_hex_up(t_string *self, size_t index, const int n)
+{
+	char	*str;
+
+	str = ft_itoh(n);
+	ft_strtoupper(str);
+	ft_string_insert(self, index, str);
 }
