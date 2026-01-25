@@ -6,40 +6,48 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:16:25 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/24 00:13:41 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/25 01:41:00 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../stringft.h"
 #include "../libft.h"
 
-void	ft_string_insert_int(t_string *self, size_t index, const int n)
+size_t	ft_string_insert_int(t_string *self, size_t index, const int n)
 {
 	char	*str;
+	size_t	ret;
 
 	str = ft_itoa(n);
-	ft_string_insert(self, index, str);
+	ret = ft_string_insert(self, index, str);
+	return (ret);
 }
 
-void	ft_string_insert_percent(t_string *self, size_t index)
+size_t	ft_string_insert_percent(t_string *self, size_t index)
 {
 	const char	*str = "%";
+	size_t		ret;
 
-	ft_string_insert(self, index, str);
+	ret = ft_string_insert(self, index, str);
+	return (ret);
 }
 
-void	ft_string_insert_pointer(t_string *self, size_t index, const void *p)
+size_t	ft_string_insert_ptr(t_string *self, size_t index, const void *p)
 {
 	char	*str;
+	size_t	ret;
 
 	str = ft_ptoh(p);
-	ft_string_insert(self, index, str);
+	ret = ft_string_insert(self, index, str);
+	return (ret);
 }
 
-void	ft_string_insert_unsigned(t_string *self, size_t index, const unsigned int n)
+size_t	ft_string_insert_uint(t_string *self, size_t index, const t_uint n)
 {
 	char	*str;
+	size_t	ret;
 
 	str = ft_itoa(n);
-	ft_string_insert(self, index, str);
+	ret = ft_string_insert(self, index, str);
+	return (ret);
 }

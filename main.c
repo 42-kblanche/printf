@@ -6,19 +6,26 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 17:29:48 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 08:06:58 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/25 01:49:14 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stringft.h"
+#include "printfft.h"
 
 int	main(void)
 {
-	t_string	test;
+	const int	n = 'A';
+	const char	*str = "fortytwo";
 
-	ft_string_init_str(&test, "testtest\n");
-	ft_string_insert(&test, 4, "insertme");
-	ft_string_print(&test, 1);
-	ft_string_destroy(&test);
+	ft_printf("test\n");
+	ft_printf("%d\n", n);
+	ft_printf("%i\n", n);
+	ft_printf("%c\n", n);
+	ft_printf("%u\n", n);
+	ft_printf("%x\n", n);
+	ft_printf("%X\n", n);
+	ft_printf("%%\n");
+	ft_printf("%s\n", str);
+	ft_printf("%p\n", str);
 	return (0);
 }
