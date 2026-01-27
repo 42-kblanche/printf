@@ -26,7 +26,6 @@ SRCS = libft/ft_calloc.c \
 	   stringft/ft_string_destroy.c \
 	   stringft/ft_string_double_size.c \
 	   stringft/ft_string_erase.c \
-	   stringft/ft_string_find.c \
 	   stringft/ft_string_init.c \
 	   stringft/ft_string_insert.c \
 	   stringft/ft_string_insert_2.c \
@@ -41,8 +40,8 @@ all: $(NAME)
 
 re: fclean all
 
-test: $(NAME)
-	$(CC) -g main.c -L. -lftprintf
+test: $(OBJS)
+	$(CC) $(CFLAGS) main.c $^
 
 $(NAME): $(OBJS)
 	@$(AR) $@ $^

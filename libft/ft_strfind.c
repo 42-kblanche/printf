@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 08:26:19 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 08:31:49 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 17:49:54 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ ssize_t	ft_strfind(const char *haystack, const char *needle)
 			if (r == 0)
 				return (i);
 		}
+		++i;
 	}
 	return (-1);
 }

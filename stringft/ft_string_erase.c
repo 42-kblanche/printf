@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:45:09 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/22 06:03:52 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 19:26:51 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	ft_string_erase(t_string *self, size_t index, size_t len)
 {
 	ft_strlcpy(self->str + index,
 		self->str + index + len,
-		ft_strlen(self->str + index + len)
+		ft_strlen(self->str + index + len) + 1
 		);
 }

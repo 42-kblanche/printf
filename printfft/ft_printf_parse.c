@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 01:15:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/25 02:03:16 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 19:26:51 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_printf_parse(t_string *out, size_t *cursor, va_list *args)
 {
 	char	tmp;
 
-	*cursor = ft_strfind(out->str + *cursor, "%");
+	*cursor += ft_strfind(out->str + *cursor, "%");
 	tmp = out->str[*cursor + 1];
 	if (tmp == PRINT_CHAR)
 		ft_printf_parse_char(out, cursor, args);
@@ -70,7 +70,7 @@ void	ft_printf_parse_pointer(t_string *out, size_t *cursor, va_list *args)
 
 void	ft_printf_parse_integer(t_string *out, size_t *cursor, va_list *args)
 {
-	char	n;
+	int	n;
 
 	n = va_arg(*args, int);
 	ft_string_erase(out, *cursor, 2);

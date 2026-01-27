@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 00:22:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/18 20:15:01 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 19:50:26 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ char	*ft_itoh(int n)
 
 	temp = (unsigned int)n;
 	str[ITOH_LEN] = '\0';
-	i = ITOH_LEN - 1;
+	i = ITOH_LEN;
 	while (temp > 0)
 	{
+		--i;
 		str[i] = hex_arr[(temp % HEX_ARR_LEN)];
 		temp /= HEX_ARR_LEN;
-		--i;
 	}
 	r = ft_strdup(str + i);
 	return (r);

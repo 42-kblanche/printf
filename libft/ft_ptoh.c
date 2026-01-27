@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ptoh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 00:22:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/18 20:23:02 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 19:56:43 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_ptoh(const void *ptr)
 	temp = (uintptr_t)ptr;
 	str[PTOH_LEN] = '\0';
 	i = PTOH_LEN - 1;
-	while (temp > 0)
+	while (temp > 0 && i > 0)
 	{
 		str[i] = hex_arr[(temp % HEX_ARR_LEN)];
 		temp /= HEX_ARR_LEN;
@@ -41,6 +41,6 @@ char	*ft_ptoh(const void *ptr)
 	}
 	str[1] = 'x';
 	str[0] = '0';
-	r = ft_strdup(str + i);
+	r = ft_strdup(str);
 	return (r);
 }

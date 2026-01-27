@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_append.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:03:07 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/18 21:05:41 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 18:42:30 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	ft_string_append(t_string *self, const char *str)
 	str_len = ft_strlen(str);
 	while (self_len > self->max_size - str_len)
 		ft_string_double_size(self);
-	ft_memcpy(self->str + self_len, str, str_len);
+	// ft_memcpy(self->str + self_len, str, str_len);
+	ft_strlcpy(self->str + self_len, str, str_len + 1);
 }
 
 void	ft_string_append_char(t_string *self, const char c)
