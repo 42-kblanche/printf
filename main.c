@@ -55,5 +55,16 @@ int	main(void)
 	// ft_printf("%%p %p %%p\n", n);
 	// ft_printf("%%s %s %%s\n", n);
 	free(str);
+	ft_printf("More tests\n");
+	ft_printf(" %c %c %c \n", '0', 0, '1');
+	ft_printf(" %c %c %c \n", '2', '1', 0);
+	ft_printf(" %c %c %c \n", 0, '1', '2');
+	ft_printf(" %p %p \n", LONG_MIN, LONG_MAX);
+	ft_printf(" %p %p \n", ULONG_MAX, -ULONG_MAX);
+	ft_printf(" %u \n", -1));
+	ft_printf(" %u ", 9223372036854775807LL);
+	ft_printf(" %u %u %u %u %u %u %u", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf(" %X %X %X %X %X %X %X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0);
 	return (0);
 }

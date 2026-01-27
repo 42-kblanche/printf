@@ -30,7 +30,6 @@ void	ft_string_append(t_string *self, const char *str)
 	str_len = ft_strlen(str);
 	while (self_len > self->max_size - str_len)
 		ft_string_double_size(self);
-	// ft_memcpy(self->str + self_len, str, str_len);
 	ft_strlcpy(self->str + self_len, str, str_len + 1);
 }
 
