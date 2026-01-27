@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 00:22:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/27 19:56:43 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:05:02 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ char	*ft_ptoh(const void *ptr)
 		temp /= HEX_ARR_LEN;
 		--i;
 	}
-	str[1] = 'x';
-	str[0] = '0';
-	r = ft_strdup(str);
+	str[i--] = 'x';
+	str[i] = '0';
+	r = ft_strdup(str + i);
 	return (r);
 }

@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 00:22:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/27 19:50:26 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:10:45 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_itoh(int n)
 	temp = (unsigned int)n;
 	str[ITOH_LEN] = '\0';
 	i = ITOH_LEN;
+	if (temp == 0)
+		str[--i] = '0';
 	while (temp > 0)
 	{
 		--i;

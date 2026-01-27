@@ -1,6 +1,9 @@
 NAME = libftprintf.a
 CC = cc
 AR = ar rcs
+TEST_O = a.out
+test: DEBUG = -g
+all: DEBUG =
 CFLAGS = -Wall -Wextra -Werror
 NEUTRAL = \033[0;0m
 RED = \033[0;31m
@@ -41,14 +44,14 @@ all: $(NAME)
 re: fclean all
 
 test: $(OBJS)
-	$(CC) $(CFLAGS) main.c $^
+	$(CC) $(CFLAGS) $(DEBUG) main.c $^ -o $(TEST_O)
 
 $(NAME): $(OBJS)
 	@$(AR) $@ $^
 	@printf "${YELLOW}Building library ${BLUE}${NAME}\n${NEUTRAL}"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $^
+	@$(CC) $(CFLAGS) $(DEBUG) -o $@ -c $^
 
 fclean: clean
 	@rm -f $(NAME) $(TEST_O)

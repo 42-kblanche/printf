@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 07:12:56 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/25 01:40:33 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:31:29 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ size_t	ft_string_insert(t_string *self, size_t index, const char *str)
 	size_t	self_len;
 	char	*tmp;
 
+	if (!str)
+		return (0);
 	self_len = ft_strlen(self->str);
 	if (self_len < index)
 		return (0);
@@ -54,6 +56,7 @@ size_t	ft_string_insert_hex_lo(t_string *self, size_t index, const int n)
 	str = ft_itoh(n);
 	ft_strtolower(str);
 	ret = ft_string_insert(self, index, str);
+	free(str);
 	return (ret);
 }
 
@@ -65,5 +68,6 @@ size_t	ft_string_insert_hex_up(t_string *self, size_t index, const int n)
 	str = ft_itoh(n);
 	ft_strtoupper(str);
 	ret = ft_string_insert(self, index, str);
+	free(str);
 	return (ret);
 }

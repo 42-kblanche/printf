@@ -6,12 +6,13 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 01:15:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/27 19:26:51 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:15:18 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printfft.h"
 #include "../libft.h"
+#define NULL_STR "(null)"
 
 void	ft_printf_parse(t_string *out, size_t *cursor, va_list *args)
 {
@@ -56,7 +57,10 @@ void	ft_printf_parse_string(t_string *out, size_t *cursor, va_list *args)
 
 	str = va_arg(*args, char *);
 	ft_string_erase(out, *cursor, 2);
-	*cursor += ft_string_insert(out, *cursor, str);
+	if (str)
+		*cursor += ft_string_insert(out, *cursor, str);
+	else
+		*cursor += ft_string_insert(out, *cursor, NULL_STR);
 }
 
 void	ft_printf_parse_pointer(t_string *out, size_t *cursor, va_list *args)
