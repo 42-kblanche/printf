@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:57:13 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/25 01:44:38 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:28:59 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_itoa(int n);
-char	*ft_itoh(int n);
+char	*ft_uitoa(unsigned int n);
+char	*ft_itoh(unsigned int n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_ptoh(const void *ptr);
 void	ft_putstr_fd(char *s, int fd);

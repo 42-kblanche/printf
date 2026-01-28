@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:16:25 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/27 21:30:51 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:16:12 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ size_t	ft_string_insert_uint(t_string *self, size_t index, const t_uint n)
 	char	*str;
 	size_t	ret;
 
-	str = ft_itoa(n);
+	str = ft_uitoa(n);
 	ret = ft_string_insert(self, index, str);
 	free(str);
 	return (ret);

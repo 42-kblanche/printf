@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 01:15:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/27 21:15:18 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:56:35 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ void	ft_printf_parse(t_string *out, size_t *cursor, va_list *args)
 	tmp = out->str[*cursor + 1];
 	if (tmp == PRINT_CHAR)
 		ft_printf_parse_char(out, cursor, args);
-	if (tmp == PRINT_STRING)
+	else if (tmp == PRINT_STRING)
 		ft_printf_parse_string(out, cursor, args);
-	if (tmp == PRINT_POINTER)
+	else if (tmp == PRINT_POINTER)
 		ft_printf_parse_pointer(out, cursor, args);
-	if (tmp == PRINT_DECIMAL)
+	else if (tmp == PRINT_DECIMAL)
 		ft_printf_parse_integer(out, cursor, args);
-	if (tmp == PRINT_INTEGER)
+	else if (tmp == PRINT_INTEGER)
 		ft_printf_parse_integer(out, cursor, args);
-	if (tmp == PRINT_UNSIGNED)
+	else if (tmp == PRINT_UNSIGNED)
 		ft_printf_parse_unsigned(out, cursor, args);
-	if (tmp == PRINT_UPHEX)
+	else if (tmp == PRINT_UPHEX)
 		ft_printf_parse_uphex(out, cursor, args);
-	if (tmp == PRINT_LOHEX)
+	else if (tmp == PRINT_LOHEX)
 		ft_printf_parse_lohex(out, cursor, args);
-	if (tmp == PRINT_PERCENT)
+	else if (tmp == PRINT_PERCENT)
 		ft_printf_parse_percent(out, cursor);
 	else
 		++*cursor;

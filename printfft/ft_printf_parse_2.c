@@ -6,7 +6,7 @@
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 01:15:31 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/25 01:57:30 by kblanche         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:49:48 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_printf_parse_unsigned(t_string *out, size_t *cursor, va_list *args)
 
 void	ft_printf_parse_uphex(t_string *out, size_t *cursor, va_list *args)
 {
-	char	n;
+	int	n;
 
 	n = va_arg(*args, int);
 	ft_string_erase(out, *cursor, 2);
