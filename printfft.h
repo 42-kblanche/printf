@@ -34,8 +34,8 @@ typedef enum e_print
 }	t_print;
 
 int		ft_printf(const char *str, ...);
-void	ft_printf_parse(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_char(t_string *out, size_t *cursor, va_list *args);
+size_t	ft_printf_parse(t_string *out, size_t *cursor, va_list *args);
+size_t	ft_printf_parse_char(t_string *out, size_t *cursor, va_list *args);
 void	ft_printf_parse_string(t_string *out, size_t *cursor, va_list *args);
 void	ft_printf_parse_pointer(t_string *out, size_t *cursor, va_list *args);
 void	ft_printf_parse_integer(t_string *out, size_t *cursor, va_list *args);

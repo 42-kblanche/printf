@@ -12,6 +12,15 @@
 
 #include "../printfft.h"
 
+void	ft_printf_parse_integer(t_string *out, size_t *cursor, va_list *args)
+{
+	int	n;
+
+	n = va_arg(*args, int);
+	ft_string_erase(out, *cursor, 2);
+	*cursor += ft_string_insert_int(out, *cursor, n);
+}
+
 void	ft_printf_parse_unsigned(t_string *out, size_t *cursor, va_list *args)
 {
 	unsigned int	n;
