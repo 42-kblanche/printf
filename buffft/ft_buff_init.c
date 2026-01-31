@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_init.c                                   :+:      :+:    :+:   */
+/*   ft_buff_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
+#include "../buffft.h"
 #include "../libft.h"
 
 #include <stdlib.h>
 
-t_string	*ft_string_init(t_string *self)
+t_buff	*ft_buff_init(t_buff *self)
 {
 	self->max_size = 0;
-	self->str = NULL;
+	self->curr_size = 0;
+	self->buff = NULL;
 	return (self);
 }
 
-t_string	*ft_string_init_str(t_string *self, const char *str)
+t_buff	*ft_buff_init_str(t_buff *self, const char *str)
 {
 	size_t	str_len;
 
 	str_len = ft_strlen(str);
 	self->max_size = str_len;
-	self->str = ft_calloc(str_len + 1, sizeof(char));
-	ft_strlcpy(self->str, str, str_len + 1);
+	self->curr_size = str_len;
+	self->buff = ft_calloc(str_len, sizeof(char));
+	ft_memcpy(self->buff, str, str_len);
 	return (self);
 }

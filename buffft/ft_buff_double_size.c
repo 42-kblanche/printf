@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_double_size.c                            :+:      :+:    :+:   */
+/*   ft_buff_double_size.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
+#include "../buffft.h"
 #include "../libft.h"
 #include <stdlib.h>
 
-size_t	ft_string_double_size(t_string *self)
+size_t	ft_buff_double_size(t_buff *self)
 {
 	char	*temp;
 
@@ -25,13 +25,15 @@ size_t	ft_string_double_size(t_string *self)
 	temp = ft_calloc(self->max_size, 1);
 	if (!temp)
 	{
-		free(self->str);
-		self->str = NULL;
+		free(self->buff);
+		self->buff = NULL;
+		self->max_size = 0;
+		self->curr_size = 0;
 		return (0);
 	}
-	if (self->str)
-		ft_memcpy(temp, self->str, ft_strlen(self->str));
-	free(self->str);
-	self->str = temp;
+	if (self->buff && self->curr_size > 0)
+		ft_memcpy(temp, self->buff, self->curr_size);
+	free(self->buff);
+	self->buff = temp;
 	return (self->max_size);
 }

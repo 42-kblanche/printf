@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_insert.c                                 :+:      :+:    :+:   */
+/*   ft_buff_insert.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,63 +11,62 @@
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "../stringft.h"
+#include "../buffft.h"
 #include <stddef.h>
 #include <stdlib.h>
 
-size_t	ft_string_insert(t_string *self, size_t index, const char *str)
+size_t	ft_buff_insert(t_buff *self, size_t index, const char *buff, size_t size)
 {
-	size_t	str_len;
-	size_t	self_len;
 	char	*tmp;
 
-	if (!str)
+	if (!buff)
 		return (0);
-	self_len = ft_strlen(self->str);
-	if (self_len < index)
+	if (self->curr_size < index)
 		return (0);
-	str_len = ft_strlen(str);
-	while (str_len >= self->max_size - self_len)
-		ft_string_double_size(self);
-	tmp = ft_strdup(self->str);
-	self->str[index] = '\0';
-	ft_string_append(self, str);
-	ft_string_append(self, tmp + index);
-	free(tmp);
-	return (str_len);
+	while (size > self->max_size - self->curr_size)
+		ft_buff_double_size(self);
+	tmp = ft_memdup(self->buff, index);
+	if (!tmp)
+	{
+		free (tmp);
+		return (0);
+	}
+	ft_memcpy(tmp + index, buff, size);
+	ft_memcpy(tmp + index + size, self->buff + index, self->curr_size - index);
+	free(self->buff);
+	self->buff = tmp;
+	self->curr_size += size;
+	return (size);
 }
 
-size_t	ft_string_insert_char(t_string *self, size_t index, const char c)
+size_t	ft_buff_insert_char(t_buff *self, size_t index, const char c)
 {
-	char	str[2];
 	size_t	ret;
 
-	str[0] = c;
-	str[1] = '\0';
-	ret = ft_string_insert(self, index, str);
+	ret = ft_buff_insert(self, index, &c, 1);
 	return (ret);
 }
 
-size_t	ft_string_insert_hex_lo(t_string *self, size_t index, const int n)
+size_t	ft_buff_insert_hex_lo(t_buff *self, size_t index, const int n)
 {
 	char	*str;
 	size_t	ret;
 
 	str = ft_itoh(n);
 	ft_strtolower(str);
-	ret = ft_string_insert(self, index, str);
+	ret = ft_buff_insert(self, index, str, ft_strlen(str));
 	free(str);
 	return (ret);
 }
 
-size_t	ft_string_insert_hex_up(t_string *self, size_t index, const int n)
+size_t	ft_buff_insert_hex_up(t_buff *self, size_t index, const int n)
 {
 	char	*str;
 	size_t	ret;
 
 	str = ft_itoh(n);
 	ft_strtoupper(str);
-	ret = ft_string_insert(self, index, str);
+	ret = ft_buff_insert(self, index, str, ft_strlen(str));
 	free(str);
 	return (ret);
 }

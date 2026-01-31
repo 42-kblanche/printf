@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_erase.c                                  :+:      :+:    :+:   */
+/*   ft_buff_erase.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
+#include "../buffft.h"
 #include "../libft.h"
 #include <stddef.h>
 
-void	ft_string_erase(t_string *self, size_t index, size_t len)
+void	ft_buff_erase(t_buff *self, size_t index, size_t len)
 {
-	ft_strlcpy(self->str + index,
-		self->str + index + len,
-		ft_strlen(self->str + index + len) + 1
+	ft_memcpy(self->buff + index,
+		self->buff + index + len,
+		self->curr_size - index - len
 		);
 }

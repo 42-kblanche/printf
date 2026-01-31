@@ -30,3 +30,16 @@ char	*ft_strdup(const char *s)
 	}
 	return (t);
 }
+
+char	*ft_memdup(const char *buff, size_t size)
+{
+	char	*t;
+	size_t	i;
+
+	i = 0;
+	t = ft_calloc(size, sizeof(char));
+	if (!t)
+		return (0);
+    ft_memcpy(t, buff, size);
+	return (t);
+}

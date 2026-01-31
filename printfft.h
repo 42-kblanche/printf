@@ -17,7 +17,7 @@
 #  define PRINTF_OUT 1
 # endif
 
-# include "stringft.h"
+# include "buffft.h"
 # include <stdarg.h>
 
 typedef enum e_print
@@ -34,14 +34,14 @@ typedef enum e_print
 }	t_print;
 
 int		ft_printf(const char *str, ...);
-size_t	ft_printf_parse(t_string *out, size_t *cursor, va_list *args);
-size_t	ft_printf_parse_char(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_string(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_pointer(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_integer(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_unsigned(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_uphex(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_lohex(t_string *out, size_t *cursor, va_list *args);
-void	ft_printf_parse_percent(t_string *out, size_t *cursor);
+void	ft_printf_parse(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_char(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_string(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_pointer(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_integer(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_unsigned(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_uphex(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_lohex(t_buff *out, size_t *cursor, va_list *args);
+void	ft_printf_parse_percent(t_buff *out, size_t *cursor);
 
 #endif

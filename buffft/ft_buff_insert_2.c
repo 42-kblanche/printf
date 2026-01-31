@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_insert_2.c                               :+:      :+:    :+:   */
+/*   ft_buff_insert_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,48 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
+#include "../buffft.h"
 #include "../libft.h"
 #include <stdlib.h>
 
-size_t	ft_string_insert_int(t_string *self, size_t index, const int n)
+size_t	ft_buff_insert_int(t_buff *self, size_t index, const int n)
 {
 	char	*str;
 	size_t	ret;
 
 	str = ft_itoa(n);
-	ret = ft_string_insert(self, index, str);
+	ret = ft_buff_insert(self, index, str, ft_strlen(str));
 	free(str);
 	return (ret);
 }
 
-size_t	ft_string_insert_percent(t_string *self, size_t index)
+size_t	ft_buff_insert_percent(t_buff *self, size_t index)
 {
 	const char	*str = "%";
 	size_t		ret;
 
-	ret = ft_string_insert(self, index, str);
+	ret = ft_buff_insert(self, index, str, ft_strlen(str));
 	return (ret);
 }
 
-size_t	ft_string_insert_ptr(t_string *self, size_t index, const void *p)
+size_t	ft_buff_insert_ptr(t_buff *self, size_t index, const void *p)
 {
 	char	*str;
 	size_t	ret;
 
 	str = ft_ptoh(p);
-	ret = ft_string_insert(self, index, str);
+	ret = ft_buff_insert(self, index, str, ft_strlen(str));
 	free(str);
 	return (ret);
 }
 
-size_t	ft_string_insert_uint(t_string *self, size_t index, const t_uint n)
+size_t	ft_buff_insert_uint(t_buff *self, size_t index, const t_uint n)
 {
 	char	*str;
 	size_t	ret;
 
 	str = ft_uitoa(n);
-	ret = ft_string_insert(self, index, str);
+	ret = ft_buff_insert(self, index, str, ft_strlen(str));
 	free(str);
 	return (ret);
 }

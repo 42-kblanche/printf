@@ -14,10 +14,21 @@
 #include "../libft.h"
 #define NULL_STR "(null)"
 
-static void	ft_printf_parse2(t_string *out, size_t *cursor,
-	va_list *args, char tmp)
+void	ft_printf_parse(t_buff *out, size_t *cursor, va_list *args)
 {
-	if (tmp == PRINT_INTEGER)
+	char	tmp;
+
+	*cursor += ft_bufffind(out->buff + *cursor, "%", out->curr_size - *cursor);
+	tmp = out->buff[*cursor + 1];
+	if (tmp == PRINT_CHAR)
+		ft_printf_parse_char(out, cursor, args);
+	else if (tmp == PRINT_STRING)
+		ft_printf_parse_string(out, cursor, args);
+	else if (tmp == PRINT_POINTER)
+		ft_printf_parse_pointer(out, cursor, args);
+	else if (tmp == PRINT_DECIMAL)
+		ft_printf_parse_integer(out, cursor, args);
+	else if (tmp == PRINT_INTEGER)
 		ft_printf_parse_integer(out, cursor, args);
 	else if (tmp == PRINT_UNSIGNED)
 		ft_printf_parse_unsigned(out, cursor, args);
@@ -31,58 +42,32 @@ static void	ft_printf_parse2(t_string *out, size_t *cursor,
 		++*cursor;
 }
 
-size_t	ft_printf_parse(t_string *out, size_t *cursor, va_list *args)
-{
-	char	tmp;
-	size_t	nb_null_char;
-
-	*cursor += ft_strfind(out->str + *cursor, "%");
-	tmp = out->str[*cursor + 1];
-	nb_null_char = 0;
-	if (tmp == PRINT_CHAR)
-		nb_null_char += ft_printf_parse_char(out, cursor, args);
-	else if (tmp == PRINT_STRING)
-		ft_printf_parse_string(out, cursor, args);
-	else if (tmp == PRINT_POINTER)
-		ft_printf_parse_pointer(out, cursor, args);
-	else if (tmp == PRINT_DECIMAL)
-		ft_printf_parse_integer(out, cursor, args);
-	else
-		ft_printf_parse2(out, cursor, args, tmp);
-	return (nb_null_char);
-}
-
-size_t	ft_printf_parse_char(t_string *out, size_t *cursor, va_list *args)
+void	ft_printf_parse_char(t_buff *out, size_t *cursor, va_list *args)
 {
 	char	c;
-	size_t	is_null_char;
 
 	c = va_arg(*args, int);
-	is_null_char = 0;
-	if (c == '\0')
-		is_null_char = 1;
-	ft_string_erase(out, *cursor, 2);
-	*cursor += ft_string_insert_char(out, *cursor, c);
-	return (is_null_char);
+	ft_buff_erase(out, *cursor, 2);
+	*cursor += ft_buff_insert_char(out, *cursor, c);
 }
 
-void	ft_printf_parse_string(t_string *out, size_t *cursor, va_list *args)
+void	ft_printf_parse_string(t_buff *out, size_t *cursor, va_list *args)
 {
 	char	*str;
 
 	str = va_arg(*args, char *);
-	ft_string_erase(out, *cursor, 2);
+	ft_buff_erase(out, *cursor, 2);
 	if (str)
-		*cursor += ft_string_insert(out, *cursor, str);
+		*cursor += ft_buff_insert(out, *cursor, str, ft_strlen(str));
 	else
-		*cursor += ft_string_insert(out, *cursor, NULL_STR);
+		*cursor += ft_buff_insert(out, *cursor, NULL_STR, ft_strlen(NULL_STR));
 }
 
-void	ft_printf_parse_pointer(t_string *out, size_t *cursor, va_list *args)
+void	ft_printf_parse_pointer(t_buff *out, size_t *cursor, va_list *args)
 {
 	void	*p;
 
 	p = va_arg(*args, void *);
-	ft_string_erase(out, *cursor, 2);
-	*cursor += ft_string_insert_ptr(out, *cursor, p);
+	ft_buff_erase(out, *cursor, 2);
+	*cursor += ft_buff_insert_ptr(out, *cursor, p);
 }

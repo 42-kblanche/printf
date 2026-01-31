@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_print.c                                  :+:      :+:    :+:   */
+/*   ft_buff_substr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kblanche <kblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 16:59:17 by kblanche          #+#    #+#             */
-/*   Updated: 2026/01/27 21:36:19 by kblanche         ###   ########.fr       */
+/*   Created: 2026/01/19 18:45:09 by kblanche          #+#    #+#             */
+/*   Updated: 2026/01/22 06:06:50 by kblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../stringft.h"
+#include "../buffft.h"
 #include "../libft.h"
+#include <stddef.h>
 
-void	ft_string_print(const t_string *self, int fd)
+t_buff	ft_buff_substr(t_buff *self, size_t index, size_t len)
 {
-	t_string	out;
+	t_buff	ret;
 
-	ft_string_init(&out);
-	ft_string_assign(&out, "string: [");
-	if (self->str)
-		ft_string_append(&out, self->str);
-	else
-		ft_string_append(&out, "(null)");
-	ft_string_append(&out, "]\nsize: ");
-	ft_string_append_int(&out, self->max_size);
-	ft_string_append(&out, "\n");
-	ft_putstr_fd(out.str, fd);
-	ft_string_destroy(&out);
+	ret.buff = ft_memdup(self->buff + index, len);
+	ret.max_size = len;
+	ret.curr_size = len;
+	return (ret);
 }
