@@ -20,4 +20,5 @@ void	ft_buff_erase(t_buff *self, size_t index, size_t len)
 		self->buff + index + len,
 		self->curr_size - index - len
 		);
+	self->curr_size -= len;
 }

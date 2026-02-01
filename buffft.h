@@ -30,7 +30,8 @@ size_t	ft_buff_double_size(t_buff *self);
 void	ft_buff_erase(t_buff *self, size_t index, size_t len);
 t_buff	*ft_buff_init(t_buff *self);
 t_buff	*ft_buff_init_str(t_buff *self, const char *str);
-size_t	ft_buff_insert(t_buff *self, size_t index, const char *str, size_t size);
+size_t	ft_buff_insert(t_buff *self, size_t index,
+			const char *str, size_t size);
 size_t	ft_buff_insert_char(t_buff *self, size_t index, const char c);
 size_t	ft_buff_insert_hex_lo(t_buff *self, size_t index, const int n);
 size_t	ft_buff_insert_hex_up(t_buff *self, size_t index, const int n);

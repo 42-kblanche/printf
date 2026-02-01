@@ -15,7 +15,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-size_t	ft_buff_insert(t_buff *self, size_t index, const char *buff, size_t size)
+size_t	ft_buff_insert(t_buff *self, size_t index,
+	const char *buff, size_t size)
 {
 	char	*tmp;
 
@@ -25,7 +26,7 @@ size_t	ft_buff_insert(t_buff *self, size_t index, const char *buff, size_t size)
 		return (0);
 	while (size > self->max_size - self->curr_size)
 		ft_buff_double_size(self);
-	tmp = ft_memdup(self->buff, index);
+	tmp = ft_memdup(self->buff, self->max_size);
 	if (!tmp)
 	{
 		free (tmp);
