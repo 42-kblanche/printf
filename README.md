@@ -34,7 +34,11 @@ If this project was downloaded from github, you should also be able to create a 
 
 ## Technical choices
 
-To achieve the project goals, I created a basic string structure that allowed me to reallocate easily the memory necessary when appending or inserting strings. 
+To achieve the project goals, I created a basic buffer structure that allowed me to reallocate easily the memory necessary when appending or inserting in it.
+
+Although this is a buffer, it is not used to implement the buffer management of the original printf.
+
+I decided to go with this approach to avoid having a printf that prints half a string if an error occurs during parsing, instead writing only once the parsing is over.
 
 I used a basic *if-else* parsing function to replace the different flags with their variadic equivalents - using various *type-to-ascii* functions I created.
 

@@ -45,6 +45,9 @@ re: fclean all
 test: $(OBJS)
 	$(CC) $(CFLAGS) $(DEBUG) main.c $^ -o $(TEST_O)
 
+testlib: $(NAME)
+	$(CC) $(CFLAGS) main.c -L. -lftprintf
+
 $(NAME): $(OBJS)
 	@$(AR) $@ $^
 	@printf "${YELLOW}Building library ${BLUE}${NAME}\n${NEUTRAL}"
